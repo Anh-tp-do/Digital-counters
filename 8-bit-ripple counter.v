@@ -1,5 +1,4 @@
 // 8-bit Ripper Counter in Verilog 
-// It can count up to 2^8 states (MOD-8 counter)
 // We'll use D flipflop for this counter 
 /*
 Features:
@@ -8,11 +7,11 @@ Features:
   - 1st FF gets external clock pulse and acts as LSB (Least significant bit) in the coutning sequence
 */
 
-module dff(
+module dff(d, clk, rst, q, not_q);
   input d, clk, rst;
   output reg q;
   output not_q;
-);
+
   always @(posegde clk or negedge rst)
     begin
       if (!rst)
@@ -23,10 +22,11 @@ module dff(
     assign not_q = ~q;
 endmodule
 
-module ripple_counter(
+      
+module ripple_counter(clk, rst, out);
   input clk, rst;
   output [7:0] out;
-);
+
   wire q1, q2, q3, q4, q5, q6, q7, q8;
   wire not_q1, not_q2, not_q3, not_q4,not_q5,not_q6,not_q7,not_q8,;
   // Instantiate dff module
