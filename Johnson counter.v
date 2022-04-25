@@ -1,8 +1,8 @@
 // Resizable Johnson counter
-module johnson_counter(
+module johnson_counter(clk, rst, out);
   input clk, rst; 
   output reg [WIDTH-1:0] out
-);
+
   always @(posedge clk)
     begin
       if (!rst)
