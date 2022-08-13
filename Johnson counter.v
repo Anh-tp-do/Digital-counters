@@ -9,7 +9,7 @@ module johnson_counter(clk, rst, out);
         out <= 1;
       else
         begin
-          out[WIDTH-1] ,+ ~out[0];
+          out[WIDTH-1] <= ~out[0];
         end 
     end 
 endmodule 
